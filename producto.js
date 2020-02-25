@@ -11,8 +11,8 @@ export default class Producto {
     this.precio = precio;
   }
 
-  getDescripcion() {
-    return `${this.nombre}, ${this.precio.getPrecio()}`;
+  getDescription() {
+    return `${this.nombre} ${this.precio.getPrecio()}`;
   }
 }
 /*

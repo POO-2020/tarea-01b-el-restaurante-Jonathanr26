@@ -10,22 +10,20 @@ import Precio from "./precio.js"
 export default class Restaurante {
     /**
      * 
-     * @param {string} nombre 
-     * @param {string} telefono 
-     * @param {Direccion} direccion 
-     * @param {Pedido} pedidos
-     * @param {Producto} productos
+     * @param {string} nombre | Nombre del restaurante
+     * @param {string} telefono | Teléfono del restaurante
+     * @param {string} direccion |Dirección del restaurante
      */
     constructor(nombre, telefono, direccion) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.productos = [];
-        this.pedidos = [];
+        this.productos = new Array();
+        this.pedidos = new Array();
     }
 
     registrarProductos(producto) {
-        this.productos.push(producto.getDescripcion());
+        this.productos.push(producto.getDescription());
     }
 
     listarProductos() {

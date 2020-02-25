@@ -7,43 +7,53 @@ import Producto from "./producto.js";
 
 export default class Pedido {
     /**
-     * 
+     *
      * @param {Fecha} fecha 
      * @param {Tiempo} hora 
      * @param {Cliente} cliente 
-     * @param {ElementosPedidos} elementosPedidos 
      */
-    constructor(fecha, hora, cliente){
-        this.fecha = fecha;
-        this.hora = hora;
-        this.cliente = cliente;
-        this.elementosPedidos =  [];
+    constructor(fecha, hora, cliente) {
+      this.fecha = fecha;
+      this.hora = hora;
+      this.cliente = cliente;
+      this.elementosPedidos = new Array();
     }
-    getNumeroElementos(){
-        return `${this.elementosPedidos.length}`;
+  
+    getResumen() {
+      return `${this.fecha.getFecha()} ${this.hora.getFormato12()} - ${this.getNumeroElementos()} elementos con ${this.getProductos()} productos - total: ${this.getCostoTotal()}  `
     }
-    getNumeroProductos(){
-        let p = 0;
-        this.elementosPedidos.forEach(elemento => { 
-            p += elemento.cantidad});
-        return p;
+  
+    getNumeroElementos() {
+      return this.elementosPedidos.length
     }
-    getCostoTotal(){
-        let c = 0;
-        this.elementosPedidos.forEach(elemento2 => { 
-            c += (elemento2.cantidad * elemento2.producto.precio.valor)});
-        return `${new Precio(c).getPrecio()}`;
+  
+    getProductos() {
+      let x = 0;
+      this.elementosPedidos.forEach(elemento => {
+        x = elemento.cantidad + x
+      })
+  
+      return (x)
     }
-    agregarElemento(elemento2){
-        return `${this.elementosPedidos.push(elemento2)}`;
+  
+    getCostoTotal() {
+      let x = 0;
+      this.elementosPedidos.forEach(elemento => {
+        x = (elemento.cantidad * elemento.producto.precio.valor) + x
+      });
+  
+      return new Precio(x).getPrecio();
     }
-    listarElementos(){
-        this.elementosPedidos.forEach((elemento, i) => {
-            console.log(`${i} - ${elemento.getDescripcion2()}`)});
+  
+  
+    agregarElemento(elemento) {
+      this.elementosPedidos.push(elemento);
     }
-    getResumen(){
-        return `${this.fecha.getFecha()} ${this.hora.getFormato12()} 
-        - ${this.getNumeroElementos()} elemenetos con ${this.getNumeroProductos()} productos 
-        - total ${this.getCostoTotal()}`;
+  
+    listarElementos() {
+      this.elementosPedidos.forEach((elemento, i) => {
+        console.log(`${i} - ${elemento.getDescripcion()}`)
+      });
     }
-}
+  
+  }
