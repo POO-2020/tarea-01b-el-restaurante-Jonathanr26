@@ -4,11 +4,11 @@ export default class Precio {
      * @param {number} valor | Valor del artículo
      */
     constructor(valor) {
-      this.valor = valor;
+      this.valor = parseFloat(valor).toFixed(2);
     }
   
     getPrecio() {
-      return '$' + new Intl.NumberFormat("en-US").format(this.valor);
+      return `$${this.valor}`;
     }
   }
 /*

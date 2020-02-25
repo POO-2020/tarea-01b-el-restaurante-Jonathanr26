@@ -1,4 +1,4 @@
-class Direccion{
+export default class Direccion{
     /**
      * 
      * @param {string} calle 

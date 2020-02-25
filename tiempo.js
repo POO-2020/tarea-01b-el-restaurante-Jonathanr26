@@ -38,12 +38,7 @@ export default class Tiempo{
         ];
     }
     getFormato12(){
-        if(this.periodo == "AM"){ 
             return `${this.hora}:${this.minutos} ${this.periodo}`;
-        }
-        else{
-            return `${this.hora}:${this.minutos} ${this.periodo}`;
-        }
     }
     getFormato24(){
         if(this.periodo == "AM"){ 
