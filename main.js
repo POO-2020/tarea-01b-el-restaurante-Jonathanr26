@@ -54,20 +54,20 @@ class Main {
       new Direccion('Manuel Altamirano', 752, "SN", 'Lomas de circunvalacion', 28010, 'Colima', 'Colima'),
       3121691160));
 
-    let elem1 = new ElementosPedidos(new Producto('Pizza ppchampi', new Precio(65.5)), 3);
-    let elem2 = new ElementosPedidos(new Producto('Crepa', new Precio(45.5)), 6);
-    pedido1.agregarElemento(elem1);
-    pedido1.agregarElemento(elem2);
+    let elemento1 = new ElementosPedidos(new Producto('Pizza ppchampi', new Precio(65.5)), 3);
+    let elemento2 = new ElementosPedidos(new Producto('Crepa', new Precio(45.5)), 6);
+    pedido1.agregarElemento(elemento1);
+    pedido1.agregarElemento(elemento2);
 
     let pedido2 = new Pedido(
       new Fecha(26, 2, 2020),
       new Tiempo(8, 35, 'PM'),
       new Cliente('Kenia', new Direccion('Su callecita', 50, 'Colonia', 28000, 'Colima', 'Colima'), 3121618781));
 
-    let elem4 = new ElementosPedidos(new Producto('Ensalada', new Precio(55.500)), 4);
-    let elem3 = new ElementosPedidos(new Producto('Clericot', new Precio(35.500)), 11);
-    pedido2.agregarElemento(elem3);
-    pedido2.agregarElemento(elem4);
+    let elemento3 = new ElementosPedidos(new Producto('Clericot', new Precio(35.500)), 11);
+    let elemento4 = new ElementosPedidos(new Producto('Ensalada', new Precio(55.500)), 4);
+    pedido2.agregarElemento(elemento3);
+    pedido2.agregarElemento(elemento4);
 
     this.restau.registrarPedido(pedido1);
     this.restau.registrarPedido(pedido2);
